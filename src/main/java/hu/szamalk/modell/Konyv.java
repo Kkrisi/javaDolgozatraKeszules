@@ -146,4 +146,48 @@ public class Konyv implements Cloneable{
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Override
+    public Iterator<Konyv> iterator() {
+        //return konyvek.iterator();
+        return new ForditottIterator();
+    }
+
+    private class ForditottIterator implements Iterator<Konyv> {
+        private int i = konyvek.size() -1;
+        @Override
+        public boolean hasNext() {
+            return i >= 0;
+        }
+
+        @Override
+        public Konyv next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException("Nincs több elem a kollekcioba.");
+            }
+            return konyvek.get(i--);
+        }
+    }
+
+
 }
