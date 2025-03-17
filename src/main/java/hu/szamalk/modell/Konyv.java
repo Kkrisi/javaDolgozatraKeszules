@@ -91,4 +91,59 @@ public class Konyv implements Cloneable{
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int compateTo(Konyv masik){
+        //return this.cim.compareTo(masik.cim);
+        Collator coll = Collator.getInstance();
+        return coll.compare(this.cim, masik.cim);
+    }
+    
+    
+    public static EvComparator(){
+        return new EvComparator();
+    }
+
+    public static ArComparator(){
+        return new ArComparator();
+    }
+
+    private static class EvComparator implements Comparator<Konyv>(){
+        @Override
+        public int compare(Konyv egyik, Konyv masik){
+            return egyik.ev - masik.ev;
+        }
+    }
+
+
+    private static class ArComparator implements Comparator<Konyv>(){
+        @Override
+        public int compare(Konyv egyik, Konyv masik){
+            return egyik.ar - masik.ar;
+        }
+    }
+
+
 }
